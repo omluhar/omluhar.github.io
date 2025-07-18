@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Om Luhar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navbar">
+    <button onclick="openTab('home')">Home</button>
+    <button onclick="openTab('uw')">UW–Madison</button>
+    <button onclick="openTab('projects')">Projects</button>
+    <button onclick="openTab('contact')">Contact</button>
+  </div>
+
+  <div id="home" class="tab-content active">
+    <div class="banner-section">
+      <img src="homepageimage.jpg" alt="Home Background" class="title-image">
+      <h1 class="banner-text">Om Luhar</h1>
+    </div>
+    <div class="spacer"></div>
+    <div class="reveal-on-scroll">
+      <p>Hi! Welcome to my personal website. 
+      <p>This space is all about showcasing who I am, what I do, and what I enjoy. Whether you're here to explore my academic background, check out projects I've built, or just learn a little more about me—I'm glad you stopped by.</p>
+      <p>I'm currently a student with a passion for technology, problem-solving, and staying active. Over time, I've worked on a variety of things that reflect both my technical interests and my creative side. This site is a growing collection of those experiences.</p>
+      <p>Feel free to look around, explore the tabs above, and reach out if you’d like to connect. Thanks for visiting!</p>
+    </div>
+  </div>
+
+  <div id="uw" class="tab-content">
+    <div class="banner-section">
+      <img src="uwbackground.png" alt="UW Background" class="title-image">
+      <h2 class="banner-text">UW–Madison</h2>
+    </div>
+    <div class="spacer"></div>
+    <div class="reveal-on-scroll">
+      <p>I’m currently a Computer Science student at the University of Wisconsin–Madison. I chose this school because of its strong academic program, competitive sports culture, vibrant campus, and world-class research funding. Plus, being right next to beautiful Lake Mendota adds a peaceful touch to the hustle.</p>
+    </div>
+  </div>
+
+  <div id="projects" class="tab-content">
+    <div class="banner-section">
+      <img src="projectsbackground.jpg" alt="Projects Background" class="title-image">
+      <h2 class="banner-text">Projects</h2>
+    </div>
+    <div class="spacer"></div>
+    <div id="projects-container" class="reveal-on-scroll">
+      <p>Loading projects...</p>
+    </div>
+  </div>
+
+  <div id="contact" class="tab-content">
+    <div class="banner-section">
+      <img src="contactbackground.jpg" alt="Contact Background" class="title-image">
+      <h2 class="banner-text">Contact</h2>
+    </div>
+    <div class="spacer"></div>
+    <div class="reveal-on-scroll">
+      <p>Feel free to reach out—whether it’s for collaboration, questions, or just to say hello.</p>
+      <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+      <p><strong>LinkedIn:</strong> <a href="www.linkedin.com/in/omluhar" target="www.linkedin.com/in/omluhar">My Linkedin</a></p>
+    </div>
+  </div>
+
+  <script>
+    let observer;
+
+    function openTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+
+      const activeTab = document.getElementById(tabId);
+      activeTab.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'instant' });
+
+      const header = activeTab.querySelector('.header');
+      if (header) {
+        header.classList.remove('animate');
+        void header.offsetWidth;
+        header.classList.add('animate');
+      }
+
+      initScrollObserver();
+    }
+
+    function initScrollObserver() {
+      if (observer) observer.disconnect();
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // 🛠 Fix for Home tab loading animation
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        el.classList.remove('visible');
+        observer.observe(el);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initScrollObserver();
+    });
+  </script>
+</body>
+</html>
