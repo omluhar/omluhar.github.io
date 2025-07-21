@@ -7,87 +7,57 @@
 </head>
 <body>
   <div class="navbar">
-    <button onclick="openTab('home')">Home</button>
-    <button onclick="openTab('uw')">UW–Madison</button>
-    <button onclick="openTab('projects')">Projects</button>
-    <button onclick="openTab('contact')">Contact</button>
+    <button onclick="scrollToSection('home')">Home</button>
+    <button onclick="scrollToSection('uw')">UW–Madison</button>
+    <button onclick="scrollToSection('projects')">Projects</button>
+    <button onclick="scrollToSection('contact')">Contact</button>
   </div>
 
-  <div id="home" class="tab-content active">
+  <section id="home">
     <div class="banner-section">
       <img src="Black.png" alt="Home Background" class="title-image">
       <h1 class="banner-text">Om Luhar</h1>
     </div>
     <div class="spacer"></div>
-    <div class="reveal-on-scroll">
-      <p>Hello! Welcome to my personal website. 
-      <p>This space is all about showcasing who I am, what I do, and what I enjoy. Whether you're here to explore my academic background, check out projects I've built, or just learn a little more about me—I'm glad you stopped by.</p>
-      <p>I'm currently a student with a passion for technology, problem-solving, and staying active. Over time, I've worked on a variety of things that reflect both my technical interests and my creative side. This site is a growing collection of those experiences.</p>
-      <p>Feel free to look around, explore the tabs above, and reach out if you’d like to connect. Thanks for visiting!</p>
-    </div>
-  </div>
+    <div class="reveal-on-scroll" id="home-content"></div>
+  </section>
 
-  <div id="uw" class="tab-content">
+  <section id="uw">
     <div class="banner-section">
       <img src="Black.png" alt="UW Background" class="title-image">
       <h2 class="banner-text">UW–Madison</h2>
     </div>
     <div class="spacer"></div>
-    <div class="reveal-on-scroll">
-      <p>I’m currently a Computer Science student at the University of Wisconsin–Madison. I chose this school because of its strong academic program, competitive sports culture, vibrant campus, and world-class research funding. Plus, being right next to beautiful Lake Mendota adds a peaceful touch to the hustle.</p>
-    </div>
-  </div>
+    <div class="reveal-on-scroll" id="uw-content"></div>
+  </section>
 
-  <div id="projects" class="tab-content">
+  <section id="projects">
     <div class="banner-section">
       <img src="Black.png" alt="Projects Background" class="title-image">
       <h2 class="banner-text">Projects</h2>
     </div>
     <div class="spacer"></div>
-    <div id="projects-container" class="reveal-on-scroll">
-      <p>Loading projects...</p>
-    </div>
-  </div>
+    <div class="reveal-on-scroll" id="projects-container"></div>
+  </section>
 
-  <div id="contact" class="tab-content">
+  <section id="contact">
     <div class="banner-section">
       <img src="Black.png" alt="Contact Background" class="title-image">
       <h2 class="banner-text">Contact</h2>
     </div>
     <div class="spacer"></div>
-    <div class="reveal-on-scroll">
-      <p>Feel free to reach out—whether it’s for collaboration, questions, or just to say hello.</p>
-      <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/omluhar" target="_blank">My LinkedIn</a></p>
-    </div>
-  </div>
+    <div class="reveal-on-scroll" id="contact-content"></div>
+  </section>
 
   <script>
     let observer;
 
-    function openTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => {
-      tab.classList.remove('active');
-    });
-
-    const activeTab = document.getElementById(tabId);
-    activeTab.classList.add('active');
-
-    window.scrollTo({ top: 0, behavior: 'instant' });
-
-    const header = activeTab.querySelector('.banner-text');
-    if (header) {
-      header.classList.remove('animate');
-      void header.offsetWidth;
-      header.classList.add('animate');
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-
-    initScrollObserver();
-
-    // ✅ Save active tab to localStorage
-    localStorage.setItem('activeTab', tabId);
-  }
-
 
     function initScrollObserver() {
       if (observer) observer.disconnect();
@@ -102,41 +72,34 @@
         });
       }, { threshold: 0.1 });
 
-      // 🛠 Fix for Home tab loading animation
       document.querySelectorAll('.reveal-on-scroll').forEach(el => {
         el.classList.remove('visible');
         observer.observe(el);
       });
     }
 
+    function loadContent() {
+      fetch('content.json')
+        .then(res => res.json())
+        .then(data => {
+          const homeText = data.home.intro.map(p => `<p>${p}</p>`).join('');
+          document.getElementById('home-content').innerHTML = homeText;
+
+          document.getElementById('uw-content').innerHTML = `<p>${data.uw.description}</p>`;
+          document.getElementById('projects-container').innerHTML = `<p>${data.projects.loading}</p>`;
+
+          document.getElementById('contact-content').innerHTML = `
+            <p>${data.contact.message}</p>
+            <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
+            <p><strong>LinkedIn:</strong> <a href="${data.contact.linkedin}" target="_blank">My LinkedIn</a></p>
+          `;
+        });
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       initScrollObserver();
-      const savedTab = localStorage.getItem('activeTab') || 'home';
-      openTab(savedTab);
-      loadContent(); // ✅ Load dynamic content
+      loadContent();
     });
-    function loadContent() {
-  fetch('content.json')
-    .then(res => res.json())
-    .then(data => {
-      // Home tab
-      const homeText = data.home.intro.map(p => `<p>${p}</p>`).join('');
-      document.querySelector('#home .reveal-on-scroll').innerHTML = homeText;
-
-      // UW tab
-      document.querySelector('#uw .reveal-on-scroll').innerHTML = `<p>${data.uw.description}</p>`;
-
-      // Projects tab
-      document.querySelector('#projects-container').innerHTML = `<p>${data.projects.loading}</p>`;
-
-      // Contact tab
-      document.querySelector('#contact .reveal-on-scroll').innerHTML = `
-        <p>${data.contact.message}</p>
-        <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
-        <p><strong>LinkedIn:</strong> <a href="${data.contact.linkedin}" target="_blank">My LinkedIn</a></p>
-      `;
-    });
-}
   </script>
 </body>
 </html>
