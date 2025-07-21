@@ -1,0 +1,20 @@
+{
+  "home": {
+    "intro": [
+      "Hi! Welcome to my personal website.",
+      "This space is all about showcasing who I am, what I do, and what I enjoy.",
+      "Feel free to look around, explore the tabs above, and reach out if you’d like to connect."
+    ]
+  },
+  "uw": {
+    "description": "I’m currently a Computer Science student at the University of Wisconsin–Madison..."
+  },
+  "projects": {
+    "loading": "Loading projects..."
+  },
+  "contact": {
+    "message": "Feel free to reach out—whether it’s for collaboration, questions, or just to say hello.",
+    "email": "youremail@example.com",
+    "linkedin": "https://www.linkedin.com/in/omluhar"
+  }
+}

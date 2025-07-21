@@ -113,7 +113,30 @@
       initScrollObserver();
       const savedTab = localStorage.getItem('activeTab') || 'home';
       openTab(savedTab);
+      loadContent(); // ✅ Load dynamic content
     });
+    function loadContent() {
+  fetch('content.json')
+    .then(res => res.json())
+    .then(data => {
+      // Home tab
+      const homeText = data.home.intro.map(p => `<p>${p}</p>`).join('');
+      document.querySelector('#home .reveal-on-scroll').innerHTML = homeText;
+
+      // UW tab
+      document.querySelector('#uw .reveal-on-scroll').innerHTML = `<p>${data.uw.description}</p>`;
+
+      // Projects tab
+      document.querySelector('#projects-container').innerHTML = `<p>${data.projects.loading}</p>`;
+
+      // Contact tab
+      document.querySelector('#contact .reveal-on-scroll').innerHTML = `
+        <p>${data.contact.message}</p>
+        <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
+        <p><strong>LinkedIn:</strong> <a href="${data.contact.linkedin}" target="_blank">My LinkedIn</a></p>
+      `;
+    });
+}
   </script>
 </body>
 </html>
