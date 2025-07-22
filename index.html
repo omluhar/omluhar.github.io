@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,10 @@
     <button onclick="scrollToSection('uw')" aria-label="Go to University section">University</button>
     <button onclick="scrollToSection('projects')" aria-label="Go to Projects section">Projects</button>
     <button onclick="scrollToSection('contact')" aria-label="Go to Contact section">Contact</button>
-    <button onclick="toggleTheme()" aria-label="Toggle site theme">Toggle Theme</button>
+    <label class="theme-switch" aria-label="Toggle light/dark theme">
+      <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
+      <span class="slider"></span>
+    </label>
   </div>
 
   <section id="home">
@@ -55,14 +58,18 @@
   </section>
 
   <section id="contact">
-    <div class="section-highlight reveal-on-scroll">
-      <h2 class="section-header">Contact</h2>
-      <div class="contact-layout">
-        <div id="contact-content"></div>
-        <div class="contact-graphic"><!-- Placeholder: map, avatar, icon, etc --></div>
-      </div>
+  <div class="section-highlight reveal-on-scroll contact-centered">
+    <p class="contact-message">
+      Feel free to contact me regarding collaborations, opportunities, or general inquiries. My contact info is listed below.
+    </p>
+    <div class="contact-links">
+      <span><strong>Email:</strong> <a href="mailto:youremail@example.com">luharom@gmail.com</a></span>
+      <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/omluhar" target="_blank">linkedin</a></span>
+      <span><strong>Phone:</strong> <a href="tel:+3318711371">+1 (331) 871-1371</a></span>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <script>
     let observer;
@@ -134,11 +141,22 @@
         });
     }
 
-    window.addEventListener("DOMContentLoaded", () => {
-      initScrollObserver();
-      loadContent();
-      if (localStorage.getItem("theme") === "light") toggleTheme();
-    });
+    function toggleTheme() {
+  const html = document.documentElement;
+  const isLight = html.getAttribute("data-theme") === "light";
+  html.setAttribute("data-theme", isLight ? "dark" : "light");
+  localStorage.setItem("theme", isLight ? "dark" : "light");
+  document.getElementById("theme-toggle").checked = !isLight;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  initScrollObserver();
+  loadContent();
+
+  const saved = localStorage.getItem("theme") || "dark";
+  document.documentElement.setAttribute("data-theme", saved);
+  document.getElementById("theme-toggle").checked = saved === "light";
+});
   </script>
 </body>
 </html>
