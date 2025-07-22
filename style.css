@@ -97,9 +97,11 @@ p {
   padding: 10px 0;
   margin: 0;
   width: 100vw;
-  background-color: rgba(30, 30, 30, 0.6); /* more transparent */
-  backdrop-filter: blur(12px);            /* keep blur */
+  background-color: rgba(30, 30, 30, 0.3); /* very transparent */
+  backdrop-filter: blur(20px);            /* strong blur for frosted glass */
+  -webkit-backdrop-filter: blur(20px);    /* Safari support */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle edge */
 }
 
 .navbar button {
