@@ -187,3 +187,26 @@ body {
   background-color: #222;
   border-left: 2px solid rgba(255, 255, 255, 0.05);
 }
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.static-title {
+  animation: fadeInUp 0.8s ease forwards;
+}
+.intro-block p {
+  animation: fadeInUp 1.2s ease forwards;
+}
