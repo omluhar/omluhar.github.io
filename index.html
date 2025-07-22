@@ -85,17 +85,11 @@
       fetch('content.json')
         .then(res => res.json())
         .then(data => {
-          // Intro under name
           const introText = data.home.intro.map(p => `<p>${p}</p>`).join('');
           document.getElementById('home-intro').innerHTML = introText;
 
-          // UW section
           document.getElementById('uw-content').innerHTML = `<p>${data.uw.description}</p>`;
-
-          // Projects
           document.getElementById('projects-container').innerHTML = `<p>${data.projects.loading}</p>`;
-
-          // Contact
           document.getElementById('contact-content').innerHTML = `
             <p>${data.contact.message}</p>
             <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
