@@ -2,17 +2,30 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #000000;
+  background-color: #000;
   color: #e0e0e0;
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  font-size: 80px;
+.static-title {
+  font-size: 120px;
+  font-weight: 700;
   color: #ffffff;
   margin: 0;
   text-align: center;
+}
+
+.intro-block {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.intro-block p {
+  font-size: 28px;
+  font-weight: 600;
+  color: #cccccc;
+  margin: 10px 0;
 }
 
 .section-header {
@@ -39,7 +52,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-radius: 0px; /* 🔺 Sharp corners */
+  border-radius: 0;
 }
 
 .left-content {
@@ -64,8 +77,19 @@ p {
 .banner-section {
   position: relative;
   width: 100vw;
-  height: 50vh;
+  height: 100vh; /* 🔺 Full screen height */
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-center {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .banner-background {
@@ -74,32 +98,11 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('your-background.gif');
+  background-image: url('your-background.gif'); /* Replace with your preferred image/gif */
   background-size: cover;
   background-position: center;
   opacity: 0.3;
   z-index: 0;
-}
-
-.rolling-name {
-  position: absolute;
-  top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
-  font-family: 'Inter', sans-serif;
-  font-size: 140px;
-  font-stretch: condensed;
-  letter-spacing: -3px;
-  white-space: nowrap;
-  color: #ffffff;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-  animation: scrollName 12s linear infinite;
-  z-index: 1;
-}
-
-@keyframes scrollName {
-  0% { left: 100%; }
-  100% { left: -100%; }
 }
 
 .spacer {

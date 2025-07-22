@@ -16,10 +16,11 @@
   <section id="home">
     <div class="banner-section">
       <div class="banner-background"></div>
-      <h1 class="rolling-name">Om Luhar</h1>
+      <div class="banner-center">
+        <h1 class="static-title">Om Luhar</h1>
+        <div class="intro-block" id="home-intro"></div>
+      </div>
     </div>
-    <div class="spacer"></div>
-    <div class="reveal-on-scroll" id="home-content"></div>
   </section>
 
   <section id="uw">
@@ -39,9 +40,7 @@
       <div class="left-content">
         <h2 class="section-header">Projects</h2>
         <div id="projects-container"></div>
-        <div class="project-ladder">
-          <!-- Future dynamic project entries -->
-        </div>
+        <div class="project-ladder"></div>
       </div>
       <div class="section-image"></div>
     </div>
@@ -70,14 +69,9 @@
 
     function initScrollObserver() {
       if (observer) observer.disconnect();
-
       observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          } else {
-            entry.target.classList.remove('visible');
-          }
+          entry.target.classList.toggle('visible', entry.isIntersecting);
         });
       }, { threshold: 0.1 });
 
@@ -91,11 +85,11 @@
       fetch('content.json')
         .then(res => res.json())
         .then(data => {
-          // Home
-          const homeText = data.home.intro.map(p => `<p>${p}</p>`).join('');
-          document.getElementById('home-content').innerHTML = homeText;
+          // Intro under name
+          const introText = data.home.intro.map(p => `<p>${p}</p>`).join('');
+          document.getElementById('home-intro').innerHTML = introText;
 
-          // UW–Madison
+          // UW section
           document.getElementById('uw-content').innerHTML = `<p>${data.uw.description}</p>`;
 
           // Projects
