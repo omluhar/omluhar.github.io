@@ -5,13 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Luhar</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Om Luhar – Computer Science student, project builder, and tech enthusiast.">
+  <meta name="keywords" content="Om Luhar, portfolio, UW Madison, web development, AI projects">
+  <meta name="author" content="Om Luhar">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Om Luhar | Portfolio">
+  <meta property="og:description" content="Explore my latest projects, university journey, and contact info.">
+  <meta property="og:image" content="images/og-thumbnail.jpg">
+  <meta property="og:type" content="website">
 </head>
 <body>
   <div class="navbar fade-in">
-    <button onclick="scrollToSection('home')">Home</button>
-    <button onclick="scrollToSection('uw')">University</button>
-    <button onclick="scrollToSection('projects')">Projects</button>
-    <button onclick="scrollToSection('contact')">Contact</button>
+    <button onclick="scrollToSection('home')" aria-label="Go to Home section">Home</button>
+    <button onclick="scrollToSection('uw')" aria-label="Go to University section">University</button>
+    <button onclick="scrollToSection('projects')" aria-label="Go to Projects section">Projects</button>
+    <button onclick="scrollToSection('contact')" aria-label="Go to Contact section">Contact</button>
+    <button onclick="toggleTheme()" aria-label="Toggle site theme">Toggle Theme</button>
   </div>
 
   <section id="home">
@@ -73,20 +85,35 @@
       });
     }
 
+    function toggleTheme() {
+      const root = document.documentElement;
+      const dark = getComputedStyle(root).getPropertyValue('--bg-color') === '#000';
+
+      if (dark) {
+        root.style.setProperty('--bg-color', '#f5f5f5');
+        root.style.setProperty('--text-color', '#222');
+        root.style.setProperty('--highlight', '#ffffff');
+        root.style.setProperty('--card-bg', '#efefef');
+        root.style.setProperty('--accent', '#0077cc');
+      } else {
+        root.style.setProperty('--bg-color', '#000');
+        root.style.setProperty('--text-color', '#e0e0e0');
+        root.style.setProperty('--highlight', '#1a1a1a');
+        root.style.setProperty('--card-bg', '#2a2a2a');
+        root.style.setProperty('--accent', '#00bfff');
+      }
+
+      localStorage.setItem("theme", dark ? "light" : "dark");
+    }
+
     function loadContent() {
       fetch("content.json")
         .then(res => res.json())
         .then(data => {
-          // Home intro
           const introHTML = data.home.intro.map(p => `<p>${p}</p>`).join('');
           document.getElementById("home-intro").innerHTML = introHTML;
-
-          // UW–Madison
           document.getElementById("uw-content").innerHTML = `<p>${data.uw.description}</p>`;
-
-          // Projects
           document.getElementById("projects-container").innerHTML = `${data.projects.loading}`;
-
           if (data.projects.items) {
             data.projects.items.forEach(project => {
               const card = document.createElement('div');
@@ -99,8 +126,6 @@
               document.getElementById('project-list').appendChild(card);
             });
           }
-
-          // Contact
           document.getElementById("contact-content").innerHTML = `
             <p>${data.contact.message}</p>
             <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
@@ -112,6 +137,7 @@
     window.addEventListener("DOMContentLoaded", () => {
       initScrollObserver();
       loadContent();
+      if (localStorage.getItem("theme") === "light") toggleTheme();
     });
   </script>
 </body>
