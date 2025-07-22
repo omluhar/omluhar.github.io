@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Luhar</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="navbar">
+  <div class="navbar fade-in">
     <button onclick="scrollToSection('home')">Home</button>
     <button onclick="scrollToSection('uw')">UW–Madison</button>
     <button onclick="scrollToSection('projects')">Projects</button>
@@ -14,7 +15,7 @@
   </div>
 
   <section id="home">
-    <div class="banner-section">
+    <div class="banner-section fade-in">
       <div class="banner-background"></div>
       <div class="banner-center">
         <h1 class="static-title">Om Luhar</h1>
@@ -30,7 +31,7 @@
         <h2 class="section-header">UW–Madison</h2>
         <div id="uw-content"></div>
       </div>
-      <div class="section-image"></div>
+      <div class="section-image fade-in"> <!-- Optional image placeholder --> </div>
     </div>
   </section>
 
@@ -40,9 +41,11 @@
       <div class="left-content">
         <h2 class="section-header">Projects</h2>
         <div id="projects-container"></div>
-        <div class="project-ladder"></div>
+        <div class="project-ladder" id="project-list">
+          <!-- 💡 Add project cards here -->
+        </div>
       </div>
-      <div class="section-image"></div>
+      <div class="section-image fade-in"> <!-- Future visual --> </div>
     </div>
   </section>
 
@@ -53,7 +56,7 @@
         <h2 class="section-header">Contact</h2>
         <div id="contact-content"></div>
       </div>
-      <div class="section-image"></div>
+      <div class="section-image fade-in"> <!-- Avatar, map, logo etc --> </div>
     </div>
   </section>
 
@@ -61,44 +64,41 @@
     let observer;
 
     function scrollToSection(id) {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
 
     function initScrollObserver() {
-      if (observer) observer.disconnect();
+      observer?.disconnect();
       observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          entry.target.classList.toggle('visible', entry.isIntersecting);
-        });
+        entries.forEach((entry) =>
+          entry.target.classList.toggle("visible", entry.isIntersecting)
+        );
       }, { threshold: 0.1 });
 
-      document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-        el.classList.remove('visible');
+      document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+        el.classList.remove("visible");
         observer.observe(el);
       });
     }
 
     function loadContent() {
-      fetch('content.json')
-        .then(res => res.json())
-        .then(data => {
-          const introText = data.home.intro.map(p => `<p>${p}</p>`).join('');
-          document.getElementById('home-intro').innerHTML = introText;
+      fetch("content.json")
+        .then((res) => res.json())
+        .then((data) => {
+          document.getElementById("home-intro").innerHTML = data.home.intro
+            .map((p) => `<p>${p}</p>`)
+            .join("");
 
-          document.getElementById('uw-content').innerHTML = `<p>${data.uw.description}</p>`;
-          document.getElementById('projects-container').innerHTML = `<p>${data.projects.loading}</p>`;
-          document.getElementById('contact-content').innerHTML = `
+          document.getElementById("uw-content").innerHTML = `<p>${data.uw.description}</p>`;
+          document.getElementById("projects-container").innerHTML = `<p>${data.projects.loading}</p>`;
+          document.getElementById("contact-content").innerHTML = `
             <p>${data.contact.message}</p>
             <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
-            <p><strong>LinkedIn:</strong> <a href="${data.contact.linkedin}" target="_blank">${data.contact.linkedin}</a></p>
-          `;
+            <p><strong>LinkedIn:</strong> <a href="${data.contact.linkedin}" target="_blank">${data.contact.linkedin}</a></p>`;
         });
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener("DOMContentLoaded", () => {
       initScrollObserver();
       loadContent();
     });
