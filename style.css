@@ -16,14 +16,15 @@ h1 {
 }
 
 .section-header {
-  font-size: 28px;
+  font-size: 24px;
+  font-weight: 700;
   color: #ffffff;
   margin-bottom: 20px;
   text-align: left;
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   color: #cccccc;
   max-width: 620px;
   margin: 10px 0;
@@ -38,6 +39,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  border-radius: 0px; /* 🔺 Sharp corners */
 }
 
 .left-content {
@@ -47,7 +49,7 @@ p {
 .section-image {
   width: 35%;
   height: 300px;
-  background-color: #222; /* Placeholder for visuals */
+  background-color: #222;
   border-left: 2px solid rgba(255, 255, 255, 0.05);
   margin-left: 40px;
 }
@@ -57,7 +59,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* Future entries will go here */
 }
 
 .banner-section {
