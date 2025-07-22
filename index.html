@@ -8,7 +8,7 @@
 <body>
   <div class="navbar">
     <button onclick="scrollToSection('home')">Home</button>
-    <button onclick="scrollToSection('uw')">University</button>
+    <button onclick="scrollToSection('uw')">UW–Madison</button>
     <button onclick="scrollToSection('projects')">Projects</button>
     <button onclick="scrollToSection('contact')">Contact</button>
   </div>
@@ -25,24 +25,39 @@
   <section id="uw">
     <div class="spacer"></div>
     <div class="content-box reveal-on-scroll">
-      <h2 class="section-header">UW–Madison</h2>
-      <div id="uw-content"></div>
+      <div class="left-content">
+        <h2 class="section-header">UW–Madison</h2>
+        <p>I study Computer Science at the University of Wisconsin–Madison. I chose UW because it offers a strong academic program alongside a vibrant and welcoming campus. There’s a powerful blend of sports culture, student organizations, social events, and accessible resources here—from study hubs to career mentoring.</p>
+        <p>In Fall 2025, the brand new CDIS (Computer, Data, and Information Sciences) building will open. It’s set to be a cutting-edge hub packed with facilities, collaboration space, and tech-forward labs—an exciting leap for CS students like myself.</p>
+      </div>
+      <div class="section-image"></div>
     </div>
   </section>
 
   <section id="projects">
     <div class="spacer"></div>
     <div class="content-box reveal-on-scroll">
-      <h2 class="section-header">Projects</h2>
-      <div id="projects-container"></div>
+      <div class="left-content">
+        <h2 class="section-header">Projects</h2>
+        <p>This section will showcase personal and collaborative projects I've worked on—from websites and machine learning models to creative experiments. I’ll continue to add new ones over time as my work evolves.</p>
+        <div class="project-ladder">
+          <!-- Placeholder for expandable project entries -->
+        </div>
+      </div>
+      <div class="section-image"></div>
     </div>
   </section>
 
   <section id="contact">
     <div class="spacer"></div>
     <div class="content-box reveal-on-scroll">
-      <h2 class="section-header">Contact</h2>
-      <div id="contact-content"></div>
+      <div class="left-content">
+        <h2 class="section-header">Contact</h2>
+        <p>If you're interested in collaborating, have questions about my work, or want to reach out regarding professional opportunities, feel free to connect with me through the links below.</p>
+        <p><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/omluhar" target="_blank">linkedin.com/in/omluhar</a></p>
+      </div>
+      <div class="section-image"></div>
     </div>
   </section>
 
@@ -81,15 +96,6 @@
         .then(data => {
           const homeText = data.home.intro.map(p => `<p>${p}</p>`).join('');
           document.getElementById('home-content').innerHTML = homeText;
-
-          document.getElementById('uw-content').innerHTML = `<p>${data.uw.description}</p>`;
-          document.getElementById('projects-container').innerHTML = `<p>${data.projects.loading}</p>`;
-
-          document.getElementById('contact-content').innerHTML = `
-            <p>${data.contact.message}</p>
-            <p><strong>Email:</strong> <a href="mailto:${data.contact.email}">${data.contact.email}</a></p>
-            <p><strong>LinkedIn:</strong> <a href="${data.contact.linkedin}" target="_blank">My LinkedIn</a></p>
-          `;
         });
     }
 
