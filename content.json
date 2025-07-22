@@ -10,7 +10,19 @@
     "description": "I study Computer Science at the University of Wisconsin–Madison. I chose this university because of its combination of strong academic programs, a beautiful campus, exciting sports culture, and diverse student organizations. The range of social events and clubs here—paired with accessible academic and career resources—has made it a great environment for growth. In Fall 2025, the new CDIS (Computer, Data, and Information Sciences) building will open, offering cutting-edge facilities and collaboration space designed specifically for computer science majors like myself."
   },
   "projects": {
-    "loading": "This section will showcase personal and collaborative projects I've worked on—from websites and machine learning models to creative experiments. I’ll continue to add new ones over time as my work evolves."
+    "loading": "This section will showcase personal and collaborative projects I've worked on—from websites and machine learning models to creative experiments. I’ll continue to add new ones over time as my work evolves.",
+    "items": [
+      {
+        "title": "Personal Portfolio",
+        "description": "A responsive, animated website to showcase my work.",
+        "link": "https://yourprojectlink.com"
+      },
+      {
+        "title": "OCD Symptom Tracker",
+        "description": "AI-assisted interface to manage and analyze symptom trends.",
+        "link": "https://github.com/yourrepo"
+      }
+    ]
   },
   "contact": {
     "message": "If you're interested in collaborating, have questions about my work, or want to reach out regarding professional opportunities, feel free to connect with me through the links below.",

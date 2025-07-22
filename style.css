@@ -181,3 +181,30 @@ p {
   0%, 100% { transform: translate(-50%, 0); }
   50% { transform: translate(-50%, 10px); }
 }
+
+.project-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.project-card a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: 600;
+}
