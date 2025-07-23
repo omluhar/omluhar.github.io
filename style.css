@@ -284,3 +284,49 @@ input:checked + .slider::before {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600&display=swap');
+
+.uw-header {
+  font-family: 'Crimson Pro', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+.uw-fullwidth {
+  background-color: var(--highlight);
+  width: 100%;
+  padding: 100px 0;
+}
+
+.uw-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+.uw-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.uw-text {
+  flex: 1;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.uw-image {
+  width: 40%;
+  max-width: 400px;
+}
+
+.uw-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
