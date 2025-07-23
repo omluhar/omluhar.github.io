@@ -287,18 +287,10 @@ input:checked + .slider::before {
 
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@600&display=swap');
 
-.uw-header {
-  font-family: 'Crimson Pro', serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 30px;
-}
-
 .uw-fullwidth {
   background-color: var(--highlight);
   width: 100%;
-  padding: 100px 0;
+  padding: 140px 0; /* taller section */
 }
 
 .uw-wrapper {
@@ -307,22 +299,32 @@ input:checked + .slider::before {
   padding: 0 40px;
 }
 
+.uw-header {
+  font-family: 'Crimson Pro', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 20px; /* reduced spacing below header */
+}
+
 .uw-layout {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
+  align-items: flex-start;
+  gap: 60px;
 }
 
 .uw-text {
   flex: 1;
+  max-width: 500px; /* narrower text block */
   font-size: 16px;
+  line-height: 1.6;
   color: var(--text-color);
 }
 
 .uw-image {
-  width: 40%;
-  max-width: 400px;
+  flex: 1;
+  max-width: 500px;
 }
 
 .uw-image img {
