@@ -391,3 +391,74 @@ input:checked + .slider::before {
   font-size: 15px;
   color: var(--text-color);
 }
+
+.experience-wrapper {
+  padding: 80px 60px;
+}
+
+.resume-link {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.resume-link a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 2px solid var(--accent);
+}
+
+.timeline-entry {
+  position: relative;
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-entry.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.timeline-content {
+  padding-left: 10px;
+}
+
+.timeline-content h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.timeline-content p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: var(--text-color);
+}
+
+.timeline-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
