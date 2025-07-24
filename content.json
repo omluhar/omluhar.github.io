@@ -9,8 +9,41 @@
   "uw": {
     "description": "I study Computer Science at the University of Wisconsin–Madison. I chose this university because of its combination of strong academic programs, a beautiful campus, exciting sports culture, and diverse student organizations. The range of social events and clubs here—paired with accessible academic and career resources—has made it a great environment for growth. In Fall 2025, the new CDIS (Computer, Data, and Information Sciences) building will open, offering cutting-edge facilities and collaboration space designed specifically for computer science majors like myself."
   },
+  "experience": {
+  "resume": "documents/Om_Luhar_Resume.pdf",
+  "items": [
+    {
+      "title": "AI Software Engineer",
+      "company": "Outlier AI",
+      "location": "Remote",
+      "duration": "Oct. 2024 – Present",
+      "logo": "images/outlierai-logo.png"
+    },
+    {
+      "title": "Software Engineer Intern",
+      "company": "Voyager Netz",
+      "location": "Saint Charles, IL",
+      "duration": "Jun. 2023 – Jun. 2024",
+      "logo": "images/voyager-logo.png"
+    },
+    {
+      "title": "Culinary Assistant",
+      "company": "UW Housing Services",
+      "location": "Madison, WI",
+      "duration": "Aug. 2024 – Dec. 2024",
+      "logo": "images/uw-logo.png"
+    },
+    {
+      "title": "AI Research Assistant",
+      "company": "Mad Ability Lab",
+      "location": "UW–Madison",
+      "duration": "May 2025 – Present",
+      "logo": "images/madability-logo.png"
+    }
+  ]
+  },
   "projects": {
-    "loading": "This section will showcase personal and collaborative projects I've worked on—from websites and machine learning models to creative experiments. I’ll continue to add new ones over time as my work evolves.",
+    "loading": "This section will showcase personal and collaborative projects I've worked on. I’ll continue to add new ones over time as my work evolves.",
     "items": [
       {
         "title": "Personal Portfolio",
