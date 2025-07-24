@@ -462,3 +462,18 @@ input:checked + .slider::before {
   margin-bottom: 10px;
   border-radius: 4px;
 }
+
+.resume-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: #0099cc;
+}
