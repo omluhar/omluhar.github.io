@@ -467,7 +467,7 @@ input:checked + .slider::before {
   display: inline-block;
   padding: 10px 20px;
   background-color: var(--accent);
-  color: #fff;
+  color: #fff; /* ← Ensure this is white or high contrast */
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
