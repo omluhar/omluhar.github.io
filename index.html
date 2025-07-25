@@ -6,26 +6,15 @@
   <title>Om Luhar</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/og-thumbnail.jpg" type="image/jpeg" />
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Om Luhar – Computer Science student, project builder, and tech enthusiast.">
-  <meta name="keywords" content="Om Luhar, portfolio, UW Madison, web development, AI projects">
-  <meta name="author" content="Om Luhar">
-
-  <!-- Open Graph Tags -->
-  <meta property="og:title" content="Om Luhar | Portfolio">
-  <meta property="og:description" content="Explore my latest projects, university journey, and contact info.">
-  <meta property="og:image" content="images/og-thumbnail.jpg">
-  <meta property="og:type" content="website">
 </head>
 <body>
   <div class="navbar fade-in">
-    <button onclick="scrollToSection('home')" aria-label="Go to Home section">Home</button>
-    <button onclick="scrollToSection('uw')" aria-label="Go to University section">University</button>
-    <button onclick="scrollToSection('experience')" aria-label="Go to Experience section">Experience</button>
-    <button onclick="scrollToSection('projects')" aria-label="Go to Projects section">Projects</button>
-    <button onclick="scrollToSection('contact')" aria-label="Go to Contact section">Contact</button>
-    <label class="theme-switch" aria-label="Toggle light/dark theme">
+    <button onclick="scrollToSection('home')">Home</button>
+    <button onclick="scrollToSection('uw')">University</button>
+    <button onclick="scrollToSection('experience')">Experience</button>
+    <button onclick="scrollToSection('projects')">Projects</button>
+    <button onclick="scrollToSection('contact')">Contact</button>
+    <label class="theme-switch">
       <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
       <span class="slider"></span>
     </label>
@@ -33,7 +22,7 @@
 
   <section id="home">
     <div class="banner-section">
-      <div class="banner-background" id="banner-image"></div>
+      <div class="banner-background"></div>
       <div class="banner-center">
         <h1 class="static-title">Om Luhar</h1>
         <div class="intro-block" id="home-intro"></div>
@@ -41,26 +30,21 @@
     </div>
   </section>
 
-  <section id="uw" class="uw-fullwidth">
-    <div class="uw-wrapper reveal-on-scroll">
+  <section id="uw" class="uw-parallax">
+    <div class="uw-overlay reveal-on-scroll">
       <h2 class="uw-header">UW Madison</h2>
-      <div class="uw-layout">
-        <div class="uw-text" id="uw-content"></div>
-        <div class="uw-courses" id="uw-courses">
-          <h3 class="course-header">Relevant Coursework</h3>
-          <ul class="course-list">
-            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming I (CS 200)</a></li>
-            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming II (CS 300)</a></li>
-            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming III (CS 400)</a></li>
-            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Intro to Computer Engineering (CS 252)</a></li>
-            <li><a href="https://guide.wisc.edu/courses/math/" target="_blank">Linear Algebra</a></li>
-            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Discrete Mathematics (CS 240)</a></li>
-            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Machine Organization and Programming (CS 354)</a></li>
-          </ul>
-        </div>
-        <div class="uw-image">
-          <img src="Aerial-Bascom-2023-10-22JM-4246-1-1024x683 (1).jpg" alt="UW Madison Campus" />
-        </div>
+      <div class="uw-description" id="uw-content"></div>
+      <div class="course-toggle">
+        <button onclick="toggleCourses()" id="course-toggle-btn">Show Courses</button>
+        <ul class="course-list" id="course-list">
+          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming I (CS 200)</a></li>
+          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming II (CS 300)</a></li>
+          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming III (CS 400)</a></li>
+          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Intro to Computer Engineering (CS 252)</a></li>
+          <li><a href="https://guide.wisc.edu/courses/math/" target="_blank">Linear Algebra</a></li>
+          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Discrete Mathematics (CS 240)</a></li>
+          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Machine Organization and Programming (CS 354)</a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -84,20 +68,24 @@
   <footer id="contact">
     <div class="section-highlight reveal-on-scroll contact-centered">
       <p class="contact-message">
-        Feel free to contact me regarding collaborations, opportunities, or general inquiries. My contact info is listed below.
+        Feel free to contact me regarding collaborations, opportunities, or general inquiries.
       </p>
-      <div class="contact-links">
-        <span><strong>📧 Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></span>
-        <span><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/omluhar" target="_blank">linkedin.com/in/omluhar</a></span>
-        <span><strong>📞 Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></span>
+      <div class="contact-icons">
+        <a href="mailto:youremail@example.com" aria-label="Email">
+          <img src="images/email-icon.png" alt="Email" />
+        </a>
+        <a href="https://www.linkedin.com/in/omluhar" target="_blank" aria-label="LinkedIn">
+          <img src="images/linkedin-icon.png" alt="LinkedIn" />
+        </a>
+        <a href="tel:+1234567890" aria-label="Phone">
+          <img src="images/phone-icon.png" alt="Phone" />
+        </a>
       </div>
       <div class="copyright-footer">
         © Om Luhar – All rights reserved.
       </div>
     </div>
   </footer>
-
-  <button id="back-to-top" aria-label="Back to top">↑</button>
 
   <script>
     let observer;
@@ -126,6 +114,13 @@
       html.setAttribute("data-theme", isLight ? "dark" : "light");
       localStorage.setItem("theme", isLight ? "dark" : "light");
       document.getElementById("theme-toggle").checked = !isLight;
+    }
+
+    function toggleCourses() {
+      const list = document.getElementById("course-list");
+      const btn = document.getElementById("course-toggle-btn");
+      list.classList.toggle("visible");
+      btn.textContent = list.classList.contains("visible") ? "Hide Courses" : "Show Courses";
     }
 
     function loadContent() {
@@ -184,18 +179,8 @@
       initScrollObserver();
       loadContent();
       const saved = localStorage.getItem("theme") || "dark";
-      document.documentElement
-            document.documentElement.setAttribute("data-theme", saved);
+      document.documentElement.setAttribute("data-theme", saved);
       document.getElementById("theme-toggle").checked = saved === "light";
-    });
-
-    // Back to top button
-    const backToTop = document.getElementById("back-to-top");
-    window.addEventListener("scroll", () => {
-      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 </body>
