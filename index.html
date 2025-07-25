@@ -147,24 +147,26 @@
       }
 
       if (data.experience.items) {
-  const timeline = document.getElementById("experience-timeline");
-  data.experience.items.forEach(exp => {
-    const entry = document.createElement("div");
-    entry.className = "timeline-entry reveal-on-scroll";
-    entry.innerHTML = `
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <img src="${exp.logo}" alt="${exp.company} Logo" class="timeline-logo" />
-        <h3>${exp.title}</h3>
-        <p><strong>${exp.company}</strong> · ${exp.location}</p>
-        <p><strong>${exp.duration}</strong></p>
-        ${exp.description ? `<p>${exp.description}</p>` : ""}
-      </div>
-    `;
-    timeline.appendChild(entry);
-  });
-}
+        const timeline = document.getElementById("experience-timeline");
+        data.experience.items.forEach(exp => {
+          const entry = document.createElement("div");
+          entry.className = "timeline-entry reveal-on-scroll";
+          entry.innerHTML = `
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <img src="${exp.logo}" alt="${exp.company} Logo" class="timeline-logo" />
+              <h3>${exp.title}</h3>
+              <p><strong>${exp.company}</strong> · ${exp.location}</p>
+              <p><strong>${exp.duration}</strong></p>
+              ${exp.description ? `<p>${exp.description}</p>` : ""}
+            </div>
+          `;
+          timeline.appendChild(entry);
+        });
+      }
 
+      // ✅ Re-initialize observer after dynamic elements are added
+      initScrollObserver();
     });
 }
 
