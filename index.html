@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Luhar</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/og-thumbnail.jpg" type="image/jpeg" />
 
   <!-- SEO Meta Tags -->
   <meta name="description" content="Om Luhar – Computer Science student, project builder, and tech enthusiast.">
@@ -48,13 +49,13 @@
         <div class="uw-courses" id="uw-courses">
           <h3 class="course-header">Relevant Coursework</h3>
           <ul class="course-list">
-            <li><a href="https://www.cs.wisc.edu/courses/cs200/" target="_blank">Programming I (CS 200)</a></li>
-            <li><a href="https://www.cs.wisc.edu/courses/cs300/" target="_blank">Programming II (CS 300)</a></li>
-            <li><a href="https://www.cs.wisc.edu/courses/cs400/" target="_blank">Programming III (CS 400)</a></li>
-            <li><a href="https://www.cs.wisc.edu/courses/cs252/" target="_blank">Intro to Computer Engineering (CS 252)</a></li>
-            <li><a href="https://www.math.wisc.edu/linear-algebra/" target="_blank">Linear Algebra</a></li>
-            <li><a href="https://www.cs.wisc.edu/courses/cs240/" target="_blank">Discrete Mathematics (CS 240)</a></li>
-            <li><a href="https://www.cs.wisc.edu/courses/cs354/" target="_blank">Machine Organization and Programming (CS 354)</a></li>
+            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming I (CS 200)</a></li>
+            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming II (CS 300)</a></li>
+            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming III (CS 400)</a></li>
+            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Intro to Computer Engineering (CS 252)</a></li>
+            <li><a href="https://guide.wisc.edu/courses/math/" target="_blank">Linear Algebra</a></li>
+            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Discrete Mathematics (CS 240)</a></li>
+            <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Machine Organization and Programming (CS 354)</a></li>
           </ul>
         </div>
         <div class="uw-image">
@@ -86,15 +87,17 @@
         Feel free to contact me regarding collaborations, opportunities, or general inquiries. My contact info is listed below.
       </p>
       <div class="contact-links">
-        <span><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></span>
-        <span><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/omluhar" target="_blank">linkedin.com/in/omluhar</a></span>
-        <span><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></span>
+        <span><strong>📧 Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></span>
+        <span><strong>🔗 LinkedIn:</strong> <a href="https://www.linkedin.com/in/omluhar" target="_blank">linkedin.com/in/omluhar</a></span>
+        <span><strong>📞 Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></span>
       </div>
       <div class="copyright-footer">
         © Om Luhar – All rights reserved.
       </div>
     </div>
   </footer>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
 
   <script>
     let observer;
@@ -126,69 +129,73 @@
     }
 
     function loadContent() {
-  fetch("content.json")
-    .then(res => res.json())
-    .then(data => {
-      // Home intro
-      const introHTML = data.home.intro.map(p => `<p>${p}</p>`).join('');
-      document.getElementById("home-intro").innerHTML = introHTML;
+      fetch("content.json")
+        .then(res => res.json())
+        .then(data => {
+          const introHTML = data.home.intro.map(p => `<p>${p}</p>`).join('');
+          document.getElementById("home-intro").innerHTML = introHTML;
 
-      // UW–Madison
-      document.getElementById("uw-content").innerHTML = `<p>${data.uw.description}</p>`;
+          document.getElementById("uw-content").innerHTML = `<p>${data.uw.description}</p>`;
 
-      // Projects
-      document.getElementById("projects-container").innerHTML = `${data.projects.loading}`;
-      if (data.projects.items) {
-        data.projects.items.forEach(project => {
-          const card = document.createElement('div');
-          card.className = "project-card";
-          card.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <a href="${project.link}" target="_blank">View project</a>
-          `;
-          document.getElementById('project-list').appendChild(card);
+          document.getElementById("projects-container").innerHTML = `${data.projects.loading}`;
+          if (data.projects.items) {
+            data.projects.items.forEach(project => {
+              const card = document.createElement('div');
+              card.className = "project-card";
+              card.innerHTML = `
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <a href="${project.link}" target="_blank">View project</a>
+              `;
+              document.getElementById('project-list').appendChild(card);
+            });
+          }
+
+          if (data.experience.resume) {
+            document.getElementById("resume-link").innerHTML = `
+              <a href="${data.experience.resume}" target="_blank" class="resume-button">📄 View My Resume</a>
+            `;
+          }
+
+          if (data.experience.items) {
+            const timeline = document.getElementById("experience-timeline");
+            data.experience.items.forEach(exp => {
+              const entry = document.createElement("div");
+              entry.className = "timeline-entry reveal-on-scroll";
+              entry.innerHTML = `
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <img src="${exp.logo}" alt="${exp.company} Logo" class="timeline-logo" />
+                  <h3>${exp.title}</h3>
+                  <p><strong>${exp.company}</strong> · ${exp.location}</p>
+                  <p><strong>${exp.duration}</strong></p>
+                  ${exp.description ? `<p>${exp.description}</p>` : ""}
+                </div>
+              `;
+              timeline.appendChild(entry);
+            });
+          }
+
+          initScrollObserver();
         });
-      }
-
-      // Experience
-      if (data.experience.resume) {
-        document.getElementById("resume-link").innerHTML = `
-          <a href="${data.experience.resume}" target="_blank" class="resume-button">📄 View My Resume</a>
-        `;
-      }
-
-      if (data.experience.items) {
-        const timeline = document.getElementById("experience-timeline");
-        data.experience.items.forEach(exp => {
-          const entry = document.createElement("div");
-          entry.className = "timeline-entry reveal-on-scroll";
-          entry.innerHTML = `
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <img src="${exp.logo}" alt="${exp.company} Logo" class="timeline-logo" />
-              <h3>${exp.title}</h3>
-              <p><strong>${exp.company}</strong> · ${exp.location}</p>
-              <p><strong>${exp.duration}</strong></p>
-              ${exp.description ? `<p>${exp.description}</p>` : ""}
-            </div>
-          `;
-          timeline.appendChild(entry);
-        });
-      }
-
-      // ✅ Re-initialize observer after dynamic elements are added
-      initScrollObserver();
-    });
-}
-
+    }
 
     window.addEventListener("DOMContentLoaded", () => {
       initScrollObserver();
       loadContent();
       const saved = localStorage.getItem("theme") || "dark";
-      document.documentElement.setAttribute("data-theme", saved);
+      document.documentElement
+            document.documentElement.setAttribute("data-theme", saved);
       document.getElementById("theme-toggle").checked = saved === "light";
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+      backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 </body>
