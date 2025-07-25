@@ -467,7 +467,7 @@ input:checked + .slider::before {
   display: inline-block;
   padding: 10px 20px;
   background-color: var(--accent);
-  color: #fff; /* ← Ensure this is white or high contrast */
+  color: var(--text-color); /* Matches theme text color */
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
@@ -477,3 +477,30 @@ input:checked + .slider::before {
 .resume-button:hover {
   background-color: #0099cc;
 }
+.course-header {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-color);
+}
+
+.course-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.course-list li {
+  margin-bottom: 8px;
+}
+
+.course-list a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.course-list a:hover {
+  text-decoration: underline;
+}
+

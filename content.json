@@ -13,18 +13,18 @@
   "resume": "documents/Om_Luhar_Resume.pdf",
   "items": [
     {
+      "title": "AI Research Assistant",
+      "company": "Mad Ability Lab",
+      "location": "UW–Madison",
+      "duration": "May 2025 – Present",
+      "logo": "Wisconsin-Badgers-logo.png"
+    },
+    {
       "title": "AI Software Engineer",
       "company": "Outlier AI",
       "location": "Remote",
       "duration": "Oct. 2024 – Present",
-      "logo": "images:outlierai-logo.png"
-    },
-    {
-      "title": "Software Engineer Intern",
-      "company": "Voyager Netz",
-      "location": "Saint Charles, IL",
-      "duration": "Jun. 2023 – Jun. 2024",
-      "logo": "images:voyager-logo.png"
+      "logo": "outlier-logo.jpeg"
     },
     {
       "title": "Culinary Assistant",
@@ -34,14 +34,14 @@
       "logo": "Wisconsin-Badgers-logo.png"
     },
     {
-      "title": "AI Research Assistant",
-      "company": "Mad Ability Lab",
-      "location": "UW–Madison",
-      "duration": "May 2025 – Present",
-      "logo": "Wisconsin-Badgers-logo.png"
+      "title": "Software Engineer Intern",
+      "company": "Voyager Netz",
+      "location": "Saint Charles, IL",
+      "duration": "Jun. 2023 – Jun. 2024",
+      "logo": "voyager-logo.png"
     }
   ]
-  },
+},
   "projects": {
     "loading": "This section will showcase personal and collaborative projects I've worked on. I’ll continue to add new ones over time as my work evolves.",
     "items": [
