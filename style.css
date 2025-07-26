@@ -122,16 +122,13 @@ input:checked + .slider:before {
   transition: filter 0.4s ease;
 }
 
-/* Dark mode (default) */
-body:not([data-theme="light"]) .banner-background {
-  filter: none;
-}
-
-/* Light mode */
-body[data-theme="light"] .banner-background {
+html[data-theme="light"] .banner-background {
   filter: invert(1) hue-rotate(180deg);
 }
 
+html:not([data-theme="light"]) .banner-background {
+  filter: none;
+}
 
 .banner-center {
   animation: fadeInUp 1s ease forwards;
