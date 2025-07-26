@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 :root {
-  --font-main: 'Segoe UI', sans-serif;
+  --font-main: 'Inter', 'Segoe UI', sans-serif;
   --color-bg-dark: #0f0f0f;
   --color-bg-light: #f9f9f9;
   --color-text-dark: #f9f9f9;
@@ -24,14 +26,23 @@ body {
   background-color: var(--bg);
   color: var(--text);
   transition: background-color var(--transition-fast), color var(--transition-fast);
+  scroll-padding-top: 60px;
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  gap: 12px; /* tighter spacing */
-  padding: 10px 0;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  background-color: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  font-family: var(--font-main);
 }
-
 
 .navbar button {
   background: none;
@@ -40,6 +51,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: color var(--transition-fast);
+  font-weight: 600;
 }
 
 .navbar button:hover {
@@ -93,6 +105,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .banner-background {
@@ -107,7 +120,19 @@ input:checked + .slider:before {
   animation: fadeInUp 1s ease forwards;
 }
 
+.static-title {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: var(--font-main);
+  margin-bottom: 1rem;
+}
+
 .intro-block p {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 0.5rem auto;
+  max-width: 600px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards;
@@ -120,18 +145,8 @@ input:checked + .slider:before {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.static-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.intro-block p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
 .uw-parallax {
-  background-image: url('Aerial-Bascom-2023-10-22JM-4246-1-1024x683\ \(1\).jpg');
+  background-image: url('Aerial-Bascom-2023-10-22JM-4246-1-1024x683\\ \\(1\\).jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -279,7 +294,6 @@ input:checked + .slider:before {
   box-shadow: 0 0 12px var(--accent);
 }
 
-
 .contact-centered {
   text-align: center;
 }
@@ -287,6 +301,9 @@ input:checked + .slider:before {
 .contact-message {
   font-size: 1.2rem;
   margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-icons {
@@ -297,13 +314,15 @@ input:checked + .slider:before {
 }
 
 .contact-icons img {
-  filter: invert(0); /* default for dark mode */
+  width: 32px;
+  height: 32px;
+  filter: invert(0);
+  transition: transform 0.3s ease;
 }
 
 [data-theme="light"] .contact-icons img {
-  filter: invert(1); /* flips white icons to black in light mode */
+  filter: invert(1);
 }
-
 
 .contact-icons img:hover {
   transform: scale(1.2);
