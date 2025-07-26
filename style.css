@@ -27,16 +27,11 @@ body {
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  z-index: 1000;
+  justify-content: center;
+  gap: 12px; /* tighter spacing */
+  padding: 10px 0;
 }
+
 
 .navbar button {
   background: none;
@@ -109,8 +104,20 @@ input:checked + .slider:before {
 }
 
 .banner-center {
-  text-align: center;
-  z-index: 1;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.intro-block p {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .static-title {
@@ -255,15 +262,23 @@ input:checked + .slider:before {
 }
 
 .project-card {
-  background-color: rgba(255,255,255,0.05);
+  background-color: var(--card-bg);
+  border: 1px solid rgba(255,255,255,0.1);
   padding: 1rem;
   border-radius: 12px;
-  transition: transform var(--transition-fast);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .project-card {
+  background-color: var(--card-bg);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 12px var(--accent);
 }
+
 
 .contact-centered {
   text-align: center;
@@ -282,11 +297,13 @@ input:checked + .slider:before {
 }
 
 .contact-icons img {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  transition: transform var(--transition-fast);
+  filter: invert(0); /* default for dark mode */
 }
+
+[data-theme="light"] .contact-icons img {
+  filter: invert(1); /* flips white icons to black in light mode */
+}
+
 
 .contact-icons img:hover {
   transform: scale(1.2);
