@@ -112,34 +112,23 @@ input:checked + .slider:before {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: overlay;
-  background-color: rgba(0,0,0,0.6); /* optional dark overlay */
-  z-index: -1;
-}
-
-.banner-background::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
   background-image: url("philip-oroni-MKapncnH4nU-unsplash.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(0,0,0,0.6);
   z-index: -1;
   transition: filter 0.4s ease;
 }
 
 /* Dark mode (default) */
-body:not(.light) .banner-background::before {
+body:not([data-theme="light"]) .banner-background {
   filter: none;
 }
 
 /* Light mode */
-body.light .banner-background::before {
+body[data-theme="light"] .banner-background {
   filter: invert(1) hue-rotate(180deg);
 }
 
