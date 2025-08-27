@@ -13,6 +13,13 @@
   "resume": "documents/Om_Luhar_Resume.pdf",
   "items": [
     {
+      "title": "Software Engineer Intern",
+      "company": "Fugen Technology",
+      "location": "Schuamburg, IL",
+      "duration": "May 2025 – Aug. 2025",
+      "logo": "Fugen-Technology-logo.jpeg"
+    },
+    {
       "title": "AI Research Assistant",
       "company": "Mad Ability Lab",
       "location": "UW–Madison",
