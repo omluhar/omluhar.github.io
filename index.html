@@ -5,89 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Luhar</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="philip-oroni-MKapncnH4nU-unsplash.jpg" type="image/jpeg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a1a1a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-size='16' fill='%23e8e8e8' font-family='system-ui,sans-serif'%3EO%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
 </head>
 <body>
-  <div class="navbar fade-in">
-    <button onclick="scrollToSection('home')">Home</button>
-    <button onclick="scrollToSection('uw')">University</button>
-    <button onclick="scrollToSection('experience')">Experience</button>
-    <button onclick="scrollToSection('projects')">Projects</button>
-    <button onclick="scrollToSection('contact')">Contact</button>
-    <label class="theme-switch">
+  <div class="top-controls">
+    <label class="theme-switch" title="Toggle light/dark">
       <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
       <span class="slider"></span>
     </label>
+    <button
+      type="button"
+      class="menu-trigger"
+      id="menu-open-btn"
+      onclick="openSectionMenu()"
+      aria-expanded="false"
+      aria-controls="section-nav"
+      aria-label="Open section menu"
+    >
+      <span class="menu-trigger-lines" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+    </button>
   </div>
 
-  <section id="home">
-    <div class="banner-section">
-      <div class="banner-background"></div>
-      <div class="banner-center">
-        <h1 class="static-title">Om Luhar</h1>
-        <div class="intro-block" id="home-intro"></div>
-      </div>
-    </div>
-  </section>
+  <div class="page-shell" id="page-shell">
+    <div class="main-panel" id="main-panel">
+      <button
+        type="button"
+        class="menu-close"
+        id="menu-close-btn"
+        onclick="closeSectionMenu()"
+        aria-label="Close section menu"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
 
-  <section id="uw" class="uw-parallax">
-    <div class="uw-overlay reveal-on-scroll">
-      <h2 class="uw-header">UW Madison</h2>
-      <div class="uw-description" id="uw-content"></div>
-      <div class="course-toggle">
-        <button onclick="toggleCourses()" id="course-toggle-btn">Show Courses</button>
-        <ul class="course-list" id="course-list">
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming I (CS 200)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming II (CS 300)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Programming III (CS 400)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Intro to Computer Engineering (CS 252)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/math/" target="_blank">Linear Algebra</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Discrete Mathematics (CS 240)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Machine Organization and Programming (CS 354)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Introduction to Human Computer Interaction (CS 570)</a></li>
-          <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank">Building User Interfaces (CS 571)</a></li>
+      <section id="home">
+        <div class="hero">
+          <h1 class="hero-title">Om Luhar</h1>
+          <div class="intro-block" id="home-intro"></div>
+        </div>
+      </section>
+
+      <section id="uw" class="content-section">
+        <div class="section-inner reveal-on-scroll">
+          <h2 class="section-heading">UW Madison</h2>
+          <div class="section-body" id="uw-content"></div>
+          <div class="course-toggle">
+            <button type="button" onclick="toggleCourses()" id="course-toggle-btn">Show courses</button>
+            <ul class="course-list" id="course-list" hidden>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Programming I (CS 200)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Programming II (CS 300)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Programming III (CS 400)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Intro to Computer Engineering (CS 252)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/math/" target="_blank" rel="noopener">Linear Algebra</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Discrete Mathematics (CS 240)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Machine Organization and Programming (CS 354)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Introduction to Human Computer Interaction (CS 570)</a></li>
+              <li><a href="https://guide.wisc.edu/courses/comp_sci/" target="_blank" rel="noopener">Building User Interfaces (CS 571)</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="content-section">
+        <div class="section-inner reveal-on-scroll experience-wrapper">
+          <h2 class="section-heading">Experience</h2>
+          <div class="resume-link" id="resume-link"></div>
+          <div class="timeline" id="experience-timeline"></div>
+        </div>
+      </section>
+
+      <section id="projects" class="content-section">
+        <div class="section-inner reveal-on-scroll">
+          <h2 class="section-heading">Projects</h2>
+          <p class="section-lead" id="projects-container"></p>
+          <div class="project-grid" id="project-list"></div>
+        </div>
+      </section>
+
+      <footer id="contact" class="content-section content-section--footer">
+        <div class="section-inner reveal-on-scroll contact-block">
+          <p class="contact-message">
+            Feel free to contact me regarding collaborations, opportunities, or general inquiries.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:luharom@gmail.com">Email</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <a href="https://www.linkedin.com/in/omluhar" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="contact-sep" aria-hidden="true">·</span>
+            <a href="tel:+3318711371">Phone</a>
+          </div>
+          <p class="copyright-footer">© Om Luhar – All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="section-nav" id="section-nav" aria-hidden="true">
+      <p class="section-nav-label">Sections</p>
+      <nav aria-label="Page sections">
+        <ul class="section-nav-list">
+          <li><button type="button" onclick="scrollToSectionFromMenu('home')">Home</button></li>
+          <li><button type="button" onclick="scrollToSectionFromMenu('uw')">University</button></li>
+          <li><button type="button" onclick="scrollToSectionFromMenu('experience')">Experience</button></li>
+          <li><button type="button" onclick="scrollToSectionFromMenu('projects')">Projects</button></li>
+          <li><button type="button" onclick="scrollToSectionFromMenu('contact')">Contact</button></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="section-highlight reveal-on-scroll experience-wrapper">
-      <h2 class="section-header">Experience</h2>
-      <div class="resume-link" id="resume-link"></div>
-      <div class="timeline" id="experience-timeline"></div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="section-contrast reveal-on-scroll">
-      <h2 class="section-header">Projects</h2>
-      <p class="section-description" id="projects-container"></p>
-      <div class="project-grid" id="project-list"></div>
-    </div>
-  </section>
-
-  <footer id="contact">
-    <div class="section-highlight reveal-on-scroll contact-centered">
-      <p class="contact-message">
-        Feel free to contact me regarding collaborations, opportunities, or general inquiries.
-      </p>
-      <div class="contact-icons">
-        <a href="mailto:luharom@gmail.com" aria-label="Email">
-          <img src="email-envelope-white-icon.webp" alt="Email" />
-        </a>
-        <a href="https://www.linkedin.com/in/omluhar" target="_blank" aria-label="LinkedIn">
-          <img src="linkedin--v2.png" alt="LinkedIn" />
-        </a>
-        <a href="tel:+3318711371" aria-label="Phone">
-          <img src="apple-phone.png" alt="Phone" />
-        </a>
-      </div>
-      <div class="copyright-footer">
-        © Om Luhar – All rights reserved.
-      </div>
-    </div>
-  </footer>
+      </nav>
+    </aside>
+  </div>
 
   <script>
     let observer;
@@ -96,13 +122,36 @@
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
 
+    function scrollToSectionFromMenu(id) {
+      closeSectionMenu();
+      requestAnimationFrame(() => scrollToSection(id));
+    }
+
+    function openSectionMenu() {
+      document.body.classList.add("menu-open");
+      const nav = document.getElementById("section-nav");
+      const openBtn = document.getElementById("menu-open-btn");
+      nav.setAttribute("aria-hidden", "false");
+      openBtn.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSectionMenu() {
+      document.body.classList.remove("menu-open");
+      const nav = document.getElementById("section-nav");
+      const openBtn = document.getElementById("menu-open-btn");
+      nav.setAttribute("aria-hidden", "true");
+      openBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+
     function initScrollObserver() {
       observer?.disconnect();
       observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) =>
           entry.target.classList.toggle("visible", entry.isIntersecting)
         );
-      }, { threshold: 0.1 });
+      }, { threshold: 0.08 });
 
       document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
         el.classList.remove("visible");
@@ -121,52 +170,63 @@
     function toggleCourses() {
       const list = document.getElementById("course-list");
       const btn = document.getElementById("course-toggle-btn");
-      list.classList.toggle("visible");
-      btn.textContent = list.classList.contains("visible") ? "Hide Courses" : "Show Courses";
+      const open = list.hasAttribute("hidden");
+      if (open) {
+        list.removeAttribute("hidden");
+        btn.textContent = "Hide courses";
+      } else {
+        list.setAttribute("hidden", "");
+        btn.textContent = "Show courses";
+      }
     }
 
     function loadContent() {
       fetch("content.json")
-        .then(res => res.json())
-        .then(data => {
-          const introHTML = data.home.intro.map(p => `<p>${p}</p>`).join('');
+        .then((res) => res.json())
+        .then((data) => {
+          const introHTML = data.home.intro.map((p) => `<p>${p}</p>`).join("");
           document.getElementById("home-intro").innerHTML = introHTML;
 
           document.getElementById("uw-content").innerHTML = `<p>${data.uw.description}</p>`;
 
-          document.getElementById("projects-container").innerHTML = `${data.projects.loading}`;
+          document.getElementById("projects-container").textContent = data.projects.loading;
           if (data.projects.items) {
-            data.projects.items.forEach(project => {
-              const card = document.createElement('div');
+            data.projects.items.forEach((project) => {
+              const card = document.createElement("div");
               card.className = "project-card";
               card.innerHTML = `
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
-                <a href="${project.link}" target="_blank">View project</a>
+                <a href="${project.link}" target="_blank" rel="noopener">View project</a>
               `;
-              document.getElementById('project-list').appendChild(card);
+              document.getElementById("project-list").appendChild(card);
             });
           }
 
           if (data.experience.resume) {
             document.getElementById("resume-link").innerHTML = `
-              <a href="${data.experience.resume}" target="_blank" class="resume-button">📄 View My Resume</a>
+              <a href="${data.experience.resume}" target="_blank" rel="noopener" class="resume-button">View resume</a>
             `;
           }
 
           if (data.experience.items) {
             const timeline = document.getElementById("experience-timeline");
-            data.experience.items.forEach(exp => {
+            data.experience.items.forEach((exp) => {
               const entry = document.createElement("div");
               entry.className = "timeline-entry reveal-on-scroll";
+              const initial = (exp.company || "?").charAt(0).toUpperCase();
               entry.innerHTML = `
-                <div class="timeline-dot"></div>
+                <div class="timeline-dot" aria-hidden="true"></div>
                 <div class="timeline-content">
-                  <img src="${exp.logo}" alt="${exp.company} Logo" class="timeline-logo" />
-                  <h3>${exp.title}</h3>
-                  <p><strong>${exp.company}</strong> · ${exp.location}</p>
-                  <p><strong>${exp.duration}</strong></p>
-                  ${exp.description ? `<p>${exp.description}</p>` : ""}
+                  <div class="timeline-top">
+                    <div class="timeline-company-mark" aria-hidden="true">${initial}</div>
+                    <div class="timeline-top-body">
+                      <h3>${exp.title}</h3>
+                      <p><strong>${exp.company}</strong> · ${exp.location}</p>
+                      <p class="timeline-duration">${exp.duration}</p>
+                      ${exp.description ? `<p>${exp.description}</p>` : ""}
+                    </div>
+                  </div>
                 </div>
               `;
               timeline.appendChild(entry);
@@ -176,6 +236,12 @@
           initScrollObserver();
         });
     }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && document.body.classList.contains("menu-open")) {
+        closeSectionMenu();
+      }
+    });
 
     window.addEventListener("DOMContentLoaded", () => {
       initScrollObserver();
