@@ -10,19 +10,34 @@
   <div class="shell">
     <div class="main" id="main">
       <header class="top-bar">
-        <button
-          type="button"
-          class="menu-toggle"
-          id="menu-toggle"
-          aria-expanded="false"
-          aria-controls="section-menu"
-          aria-label="Open menu"
-        >
-          <span class="menu-icon" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </span>
-        </button>
+        <div class="top-bar-inner">
+          <button type="button" class="contact-cta" id="contact-cta">
+            <span class="contact-cta-label">Contact me</span>
+            <span class="contact-cta-line" aria-hidden="true"></span>
+          </button>
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-expanded="false"
+            aria-controls="section-menu"
+            aria-label="Open menu"
+          >
+            <span class="menu-icon" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
       </header>
+
+      <button
+        type="button"
+        class="menu-close"
+        id="menu-close"
+        aria-label="Close menu"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
 
       <main class="content">
         <section id="home" class="section section--home">
@@ -56,8 +71,9 @@
   <script>
     const body = document.body;
     const toggle = document.getElementById("menu-toggle");
+    const closeBtn = document.getElementById("menu-close");
+    const contactCta = document.getElementById("contact-cta");
     const drawer = document.getElementById("section-menu");
-    const main = document.getElementById("main");
 
     function openMenu() {
       body.classList.add("menu-open");
@@ -81,6 +97,14 @@
     }
 
     toggle.addEventListener("click", toggleMenu);
+    closeBtn.addEventListener("click", closeMenu);
+
+    contactCta.addEventListener("click", () => {
+      closeMenu();
+      requestAnimationFrame(() => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
 
     drawer.querySelectorAll("[data-target]").forEach((btn) => {
       btn.addEventListener("click", () => {
