@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Luhar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,8 +18,7 @@
       <header class="top-bar">
         <div class="top-bar-inner">
           <button type="button" class="contact-cta" id="contact-cta">
-            <span class="contact-cta-label">Contact me</span>
-            <span class="contact-cta-line" aria-hidden="true"></span>
+            <span class="contact-cta-label">Connect With Me</span>
           </button>
           <button
             type="button"
@@ -23,6 +28,7 @@
             aria-controls="section-menu"
             aria-label="Open menu"
           >
+            <span class="menu-toggle-label" aria-hidden="true">Menu</span>
             <span class="menu-icon" aria-hidden="true">
               <span></span><span></span><span></span>
             </span>
@@ -30,40 +36,159 @@
         </div>
       </header>
 
-      <button
-        type="button"
-        class="menu-close"
-        id="menu-close"
-        aria-label="Close menu"
-      >
-        <span aria-hidden="true">×</span>
+      <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">
+        <span class="menu-close-lines" aria-hidden="true">
+          <span></span><span></span>
+        </span>
       </button>
 
       <main class="content">
-        <section id="home" class="section section--home">
-          <h1 class="name">Om Luhar</h1>
+        <section id="home" class="hero" aria-label="Home">
+          <div class="hero-inner">
+            <h1 class="hero-name">Om Luhar</h1>
+          </div>
         </section>
 
-        <section id="experience" class="section section--placeholder" aria-label="Experience">
-          <!-- Experience content will go here -->
+        <section id="experience" class="brand-section" aria-labelledby="experience-heading">
+          <div class="brand-section-inner">
+            <header class="section-header reveal">
+              <p class="section-kicker">Experience</p>
+              <h2 id="experience-heading" class="section-title">Roles &amp; impact</h2>
+              <p class="section-lede">
+                A concise view of where I’ve worked and what I focused on—structured like a timeline of
+                growing responsibility.
+              </p>
+            </header>
+
+            <div class="job-list">
+              <article class="job reveal">
+                <h3 class="job-company">Your most recent company</h3>
+                <p class="job-role">Your role title</p>
+                <p class="job-meta">City, Region · Start – Present</p>
+                <p class="job-lead">
+                  Lead with a short summary of the team, scope, and the outcomes you drove. Keep it tight and
+                  outcome-oriented.
+                </p>
+                <ul class="job-bullets">
+                  <li>Replace with a measurable win or responsibility you owned end-to-end.</li>
+                  <li>Highlight collaboration across design, product, or engineering where relevant.</li>
+                  <li>Add a third bullet for tools, scale, or leadership scope.</li>
+                </ul>
+              </article>
+
+              <article class="job reveal">
+                <h3 class="job-company">Previous organization</h3>
+                <p class="job-role">Previous title</p>
+                <p class="job-meta">City, Region · Years</p>
+                <p class="job-lead">
+                  One or two sentences on the mission of the team and your mandate—enough context for the
+                  bullets to land.
+                </p>
+                <ul class="job-bullets">
+                  <li>Concrete project or initiative with a clear before/after.</li>
+                  <li>Process, systems, or quality improvements you introduced.</li>
+                </ul>
+              </article>
+
+              <article class="job reveal">
+                <h3 class="job-company">Earlier experience</h3>
+                <p class="job-role">Role</p>
+                <p class="job-meta">City, Region · Years</p>
+                <p class="job-lead">Optional short line if you want a third block on the page.</p>
+                <ul class="job-bullets">
+                  <li>Keep or remove this block based on your real résumé.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
         </section>
 
-        <section id="projects" class="section section--placeholder" aria-label="Projects">
-          <!-- Projects content will go here -->
+        <section id="projects" class="brand-section brand-section--alt" aria-labelledby="projects-heading">
+          <div class="brand-section-inner">
+            <header class="section-header reveal">
+              <p class="section-kicker">Projects</p>
+              <h2 id="projects-heading" class="section-title">Selected work</h2>
+              <p class="section-lede">
+                Case studies and builds that show how you think—naming, layout, and motion should feel as
+                intentional as the reference you gave.
+              </p>
+            </header>
+
+            <div class="project-grid">
+              <article class="project-card reveal">
+                <span class="project-card-index">01</span>
+                <h3 class="project-card-title">Project name</h3>
+                <p class="project-card-tag">Product · Web</p>
+                <p class="project-card-desc">
+                  One line on the problem, the constraint, and the result. Swap in a real summary when you
+                  ship this section.
+                </p>
+              </article>
+              <article class="project-card reveal">
+                <span class="project-card-index">02</span>
+                <h3 class="project-card-title">Another build</h3>
+                <p class="project-card-tag">Brand · Design system</p>
+                <p class="project-card-desc">
+                  Optional second line for tools, stack, or audience—mirrors the “selected work” rhythm of
+                  editorial portfolios.
+                </p>
+              </article>
+              <article class="project-card reveal">
+                <span class="project-card-index">03</span>
+                <h3 class="project-card-title">Side project</h3>
+                <p class="project-card-tag">Experiment</p>
+                <p class="project-card-desc">Short teaser; link out or expand into a case study later.</p>
+              </article>
+              <article class="project-card reveal">
+                <span class="project-card-index">04</span>
+                <h3 class="project-card-title">More to come</h3>
+                <p class="project-card-tag">Placeholder</p>
+                <p class="project-card-desc">Duplicate this card pattern as you add real launches.</p>
+              </article>
+            </div>
+          </div>
         </section>
 
-        <section id="contact" class="section section--placeholder" aria-label="Contact me">
-          <!-- Contact content will go here -->
+        <section id="contact" class="brand-section" aria-labelledby="contact-heading">
+          <div class="brand-section-inner brand-section-inner--narrow">
+            <header class="section-header reveal">
+              <p class="section-kicker">Contact</p>
+              <h2 id="contact-heading" class="section-title">Connect with me</h2>
+              <p class="section-lede">
+                New business, collaborations, or a conversation about your next launch—reach out directly.
+              </p>
+            </header>
+
+            <div class="contact-block reveal">
+              <h3 class="contact-block-title">New business inquiries</h3>
+              <ul class="contact-list">
+                <li>
+                  <span class="contact-list-label">Email</span>
+                  <a class="contact-link" href="mailto:hello@example.com">hello@example.com</a>
+                </li>
+              </ul>
+              <p class="contact-note">
+                Replace the address with your preferred inbox. Add LinkedIn or other links here when you’re
+                ready.
+              </p>
+            </div>
+          </div>
         </section>
+
+        <footer class="site-footer">
+          <div class="site-footer-inner">
+            <p class="site-footer-copy">© <span id="year"></span> Om Luhar</p>
+          </div>
+        </footer>
       </main>
     </div>
 
-    <nav class="drawer" id="section-menu" aria-hidden="true">
+    <nav class="drawer" id="section-menu" aria-hidden="true" aria-label="Section navigation">
       <ul class="drawer-list">
         <li><button type="button" data-target="home">Home</button></li>
         <li><button type="button" data-target="experience">Experience</button></li>
         <li><button type="button" data-target="projects">Projects</button></li>
-        <li><button type="button" data-target="contact">Contact me</button></li>
+        <li><button type="button" data-target="contact">Connect With Me</button></li>
       </ul>
     </nav>
   </div>
@@ -74,6 +199,8 @@
     const closeBtn = document.getElementById("menu-close");
     const contactCta = document.getElementById("contact-cta");
     const drawer = document.getElementById("section-menu");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
 
     function openMenu() {
       body.classList.add("menu-open");
@@ -122,6 +249,24 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && body.classList.contains("menu-open")) closeMenu();
     });
+
+    const revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    }
   </script>
 </body>
 </html>
