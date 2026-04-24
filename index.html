@@ -3,270 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Om Luhar</title>
+  <title>Om Luhar — CS Student at UW-Madison</title>
+  <meta name="description" content="Om Luhar — Computer Science student at UW-Madison. Builder, thinker, creator." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
   <div class="shell">
-    <div class="main" id="main">
-      <header class="top-bar">
-        <div class="top-bar-inner">
-          <button type="button" class="contact-cta" id="contact-cta">
-            <span class="contact-cta-label">Connect With Me</span>
-          </button>
-          <button
-            type="button"
-            class="menu-toggle"
-            id="menu-toggle"
-            aria-expanded="false"
-            aria-controls="section-menu"
-            aria-label="Open menu"
-          >
-            <span class="menu-toggle-label" aria-hidden="true">Menu</span>
-            <span class="menu-icon" aria-hidden="true">
-              <span></span><span></span><span></span>
-            </span>
-          </button>
-        </div>
-      </header>
 
-      <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">
-        <span class="menu-close-lines" aria-hidden="true">
-          <span></span><span></span>
-        </span>
-      </button>
+    <!-- ── Top bar ── -->
+    <header class="top-bar" id="top-bar">
+      <div class="top-bar-inner">
+        <a href="#home" class="logo" aria-label="Om Luhar — home">OL</a>
+        <nav class="top-nav" aria-label="Primary">
+          <a href="#experience" class="top-nav-link magnetic" data-magnetic>Experience</a>
+          <a href="#projects"   class="top-nav-link magnetic" data-magnetic>Work</a>
+          <a href="#contact"    class="top-nav-link magnetic" data-magnetic>Contact</a>
+        </nav>
+        <button type="button" class="menu-toggle" id="menu-toggle"
+          aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+          <span class="hamburger" aria-hidden="true">
+            <span></span><span></span>
+          </span>
+        </button>
+      </div>
+    </header>
 
-      <main class="content">
-        <section id="home" class="hero" aria-label="Home">
-          <div class="hero-inner">
-            <h1 class="hero-name">Om Luhar</h1>
+    <!-- ── Mobile drawer ── -->
+    <nav class="drawer" id="drawer" aria-hidden="true" aria-label="Mobile navigation">
+      <ul class="drawer-list">
+        <li><a href="#home"       class="drawer-link" data-target="home">Home</a></li>
+        <li><a href="#experience" class="drawer-link" data-target="experience">Experience</a></li>
+        <li><a href="#projects"   class="drawer-link" data-target="projects">Work</a></li>
+        <li><a href="#contact"    class="drawer-link" data-target="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <main class="content" id="main">
+
+      <!-- ══════════════════════════════════════
+           HERO
+      ══════════════════════════════════════ -->
+      <section id="home" class="hero" aria-label="Home">
+        <!-- Noise grain overlay -->
+        <div class="hero-grain" aria-hidden="true"></div>
+        <!-- Ambient glow blobs -->
+        <div class="hero-blob hero-blob--a" aria-hidden="true"></div>
+        <div class="hero-blob hero-blob--b" aria-hidden="true"></div>
+
+        <div class="hero-inner">
+          <p class="hero-kicker reveal-up" style="--delay:.05s">CS Student · UW-Madison</p>
+          <h1 class="hero-name">
+            <span class="hero-name-line reveal-clip" style="--delay:.15s">Om</span>
+            <span class="hero-name-line reveal-clip" style="--delay:.28s">Luhar</span>
+          </h1>
+          <p class="hero-sub reveal-up" style="--delay:.45s">
+            Building things at the intersection of<br>
+            <em>design, engineering, and curiosity.</em>
+          </p>
+          <div class="hero-cta-row reveal-up" style="--delay:.6s">
+            <a href="#projects" class="btn btn--primary magnetic" data-magnetic>View my work</a>
+            <a href="#contact"  class="btn btn--ghost  magnetic" data-magnetic>Get in touch</a>
           </div>
-        </section>
+        </div>
 
-        <section id="experience" class="brand-section" aria-labelledby="experience-heading">
-          <div class="brand-section-inner">
-            <header class="section-header reveal">
-              <p class="section-kicker">Experience</p>
-              <h2 id="experience-heading" class="section-title">Roles &amp; impact</h2>
-              <p class="section-lede">
-                A concise view of where I’ve worked and what I focused on—structured like a timeline of
-                growing responsibility.
-              </p>
-            </header>
+        <div class="hero-scroll-hint reveal-up" style="--delay:.9s" aria-hidden="true">
+          <span class="scroll-line"></span>
+          <span class="scroll-label">Scroll</span>
+        </div>
+      </section>
 
-            <div class="job-list">
-              <article class="job reveal">
-                <h3 class="job-company">Your most recent company</h3>
-                <p class="job-role">Your role title</p>
-                <p class="job-meta">City, Region · Start – Present</p>
+      <!-- ══════════════════════════════════════
+           EXPERIENCE
+      ══════════════════════════════════════ -->
+      <section id="experience" class="section" aria-labelledby="exp-heading">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="section-kicker reveal-up">Experience</p>
+            <h2 id="exp-heading" class="section-title reveal-up" style="--delay:.1s">Roles &amp; impact</h2>
+            <p class="section-lede reveal-up" style="--delay:.2s">
+              A timeline of growing responsibility — where I've worked and what I've shipped.
+            </p>
+          </header>
+
+          <div class="job-list">
+
+            <article class="job reveal-up" style="--delay:.05s">
+              <div class="job-left">
+                <span class="job-year">2025 — Present</span>
+              </div>
+              <div class="job-right">
+                <h3 class="job-company">Your Most Recent Company</h3>
+                <p class="job-role">Role Title</p>
                 <p class="job-lead">
-                  Lead with a short summary of the team, scope, and the outcomes you drove. Keep it tight and
-                  outcome-oriented.
+                  Lead with a short summary of the team, scope, and the outcomes you drove.
+                  Keep it tight and outcome-oriented.
                 </p>
                 <ul class="job-bullets">
                   <li>Replace with a measurable win or responsibility you owned end-to-end.</li>
-                  <li>Highlight collaboration across design, product, or engineering where relevant.</li>
+                  <li>Highlight collaboration across design, product, or engineering.</li>
                   <li>Add a third bullet for tools, scale, or leadership scope.</li>
                 </ul>
-              </article>
+                <div class="job-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Node.js</span>
+                </div>
+              </div>
+            </article>
 
-              <article class="job reveal">
-                <h3 class="job-company">Previous organization</h3>
-                <p class="job-role">Previous title</p>
-                <p class="job-meta">City, Region · Years</p>
+            <article class="job reveal-up" style="--delay:.1s">
+              <div class="job-left">
+                <span class="job-year">2024 — 2025</span>
+              </div>
+              <div class="job-right">
+                <h3 class="job-company">Previous Organization</h3>
+                <p class="job-role">Previous Title</p>
                 <p class="job-lead">
-                  One or two sentences on the mission of the team and your mandate—enough context for the
-                  bullets to land.
+                  One or two sentences on the mission of the team and your mandate —
+                  enough context for the bullets to land.
                 </p>
                 <ul class="job-bullets">
                   <li>Concrete project or initiative with a clear before/after.</li>
                   <li>Process, systems, or quality improvements you introduced.</li>
                 </ul>
-              </article>
+                <div class="job-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">AWS</span>
+                </div>
+              </div>
+            </article>
 
-              <article class="job reveal">
-                <h3 class="job-company">Earlier experience</h3>
+            <article class="job reveal-up" style="--delay:.15s">
+              <div class="job-left">
+                <span class="job-year">2023 — 2024</span>
+              </div>
+              <div class="job-right">
+                <h3 class="job-company">Earlier Experience</h3>
                 <p class="job-role">Role</p>
-                <p class="job-meta">City, Region · Years</p>
                 <p class="job-lead">Optional short line if you want a third block on the page.</p>
                 <ul class="job-bullets">
                   <li>Keep or remove this block based on your real résumé.</li>
                 </ul>
-              </article>
-            </div>
+                <div class="job-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">SQL</span>
+                </div>
+              </div>
+            </article>
+
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="projects" class="brand-section brand-section--alt" aria-labelledby="projects-heading">
-          <div class="brand-section-inner">
-            <header class="section-header reveal">
-              <p class="section-kicker">Projects</p>
-              <h2 id="projects-heading" class="section-title">Selected work</h2>
-              <p class="section-lede">
-                Case studies and builds that show how you think—naming, layout, and motion should feel as
-                intentional as the reference you gave.
-              </p>
-            </header>
+      <!-- ══════════════════════════════════════
+           PROJECTS
+      ══════════════════════════════════════ -->
+      <section id="projects" class="section section--alt" aria-labelledby="proj-heading">
+        <div class="section-inner">
+          <header class="section-header">
+            <p class="section-kicker reveal-up">Work</p>
+            <h2 id="proj-heading" class="section-title reveal-up" style="--delay:.1s">Selected projects</h2>
+            <p class="section-lede reveal-up" style="--delay:.2s">
+              A handful of builds that show how I think — from concept to shipped product.
+            </p>
+          </header>
 
-            <div class="project-grid">
-              <article class="project-card reveal">
+          <div class="project-grid">
+
+            <article class="project-card reveal-up" style="--delay:.05s">
+              <div class="project-card-img" aria-hidden="true">
+                <div class="project-card-img-inner"></div>
+              </div>
+              <div class="project-card-body">
                 <span class="project-card-index">01</span>
-                <h3 class="project-card-title">Project name</h3>
-                <p class="project-card-tag">Product · Web</p>
+                <h3 class="project-card-title">Project Name</h3>
+                <p class="project-card-tag">Full-Stack · Web App</p>
                 <p class="project-card-desc">
-                  One line on the problem, the constraint, and the result. Swap in a real summary when you
-                  ship this section.
+                  One line on the problem, the constraint, and the result.
+                  Swap in a real summary when you ship this section.
                 </p>
-              </article>
-              <article class="project-card reveal">
+                <a href="#" class="project-card-link magnetic" data-magnetic aria-label="View Project Name">
+                  <span>View project</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card reveal-up" style="--delay:.1s">
+              <div class="project-card-img" aria-hidden="true">
+                <div class="project-card-img-inner"></div>
+              </div>
+              <div class="project-card-body">
                 <span class="project-card-index">02</span>
-                <h3 class="project-card-title">Another build</h3>
-                <p class="project-card-tag">Brand · Design system</p>
+                <h3 class="project-card-title">Another Build</h3>
+                <p class="project-card-tag">ML · Research</p>
                 <p class="project-card-desc">
-                  Optional second line for tools, stack, or audience—mirrors the “selected work” rhythm of
-                  editorial portfolios.
+                  Optional second line for tools, stack, or audience — mirrors the
+                  "selected work" rhythm of editorial portfolios.
                 </p>
-              </article>
-              <article class="project-card reveal">
+                <a href="#" class="project-card-link magnetic" data-magnetic aria-label="View Another Build">
+                  <span>View project</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card reveal-up" style="--delay:.15s">
+              <div class="project-card-img" aria-hidden="true">
+                <div class="project-card-img-inner"></div>
+              </div>
+              <div class="project-card-body">
                 <span class="project-card-index">03</span>
-                <h3 class="project-card-title">Side project</h3>
-                <p class="project-card-tag">Experiment</p>
-                <p class="project-card-desc">Short teaser; link out or expand into a case study later.</p>
-              </article>
-              <article class="project-card reveal">
+                <h3 class="project-card-title">Side Project</h3>
+                <p class="project-card-tag">Experiment · Open Source</p>
+                <p class="project-card-desc">
+                  Short teaser; link out or expand into a case study later.
+                </p>
+                <a href="#" class="project-card-link magnetic" data-magnetic aria-label="View Side Project">
+                  <span>View project</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="project-card reveal-up" style="--delay:.2s">
+              <div class="project-card-img" aria-hidden="true">
+                <div class="project-card-img-inner"></div>
+              </div>
+              <div class="project-card-body">
                 <span class="project-card-index">04</span>
-                <h3 class="project-card-title">More to come</h3>
+                <h3 class="project-card-title">More to Come</h3>
                 <p class="project-card-tag">Placeholder</p>
-                <p class="project-card-desc">Duplicate this card pattern as you add real launches.</p>
-              </article>
-            </div>
+                <p class="project-card-desc">
+                  Duplicate this card pattern as you add real launches.
+                </p>
+                <a href="#" class="project-card-link magnetic" data-magnetic aria-label="View More to Come">
+                  <span>View project</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
+
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="contact" class="brand-section" aria-labelledby="contact-heading">
-          <div class="brand-section-inner brand-section-inner--narrow">
-            <header class="section-header reveal">
-              <p class="section-kicker">Contact</p>
-              <h2 id="contact-heading" class="section-title">Connect with me</h2>
-              <p class="section-lede">
-                New business, collaborations, or a conversation about your next launch—reach out directly.
-              </p>
-            </header>
+      <!-- ══════════════════════════════════════
+           CONTACT
+      ══════════════════════════════════════ -->
+      <section id="contact" class="section section--contact" aria-labelledby="contact-heading">
+        <div class="section-inner section-inner--narrow">
 
-            <div class="contact-block reveal">
-              <h3 class="contact-block-title">New business inquiries</h3>
-              <ul class="contact-list">
-                <li>
-                  <span class="contact-list-label">Email</span>
-                  <a class="contact-link" href="mailto:hello@example.com">hello@example.com</a>
-                </li>
-              </ul>
-              <p class="contact-note">
-                Replace the address with your preferred inbox. Add LinkedIn or other links here when you’re
-                ready.
-              </p>
-            </div>
+          <div class="contact-eyebrow reveal-up">
+            <p class="section-kicker">Contact</p>
           </div>
-        </section>
 
-        <footer class="site-footer">
-          <div class="site-footer-inner">
-            <p class="site-footer-copy">© <span id="year"></span> Om Luhar</p>
+          <h2 id="contact-heading" class="contact-title reveal-up" style="--delay:.1s">
+            Let's build<br>something great.
+          </h2>
+
+          <p class="contact-sub reveal-up" style="--delay:.2s">
+            Open to internships, collaborations, and interesting conversations.
+            Reach out — I read every message.
+          </p>
+
+          <div class="contact-links reveal-up" style="--delay:.3s">
+            <a href="mailto:oluhar@wisc.edu" class="contact-email magnetic" data-magnetic>
+              oluhar@wisc.edu
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12M12 5l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
           </div>
-        </footer>
-      </main>
-    </div>
 
-    <nav class="drawer" id="section-menu" aria-hidden="true" aria-label="Section navigation">
-      <ul class="drawer-list">
-        <li><button type="button" data-target="home">Home</button></li>
-        <li><button type="button" data-target="experience">Experience</button></li>
-        <li><button type="button" data-target="projects">Projects</button></li>
-        <li><button type="button" data-target="contact">Connect With Me</button></li>
-      </ul>
-    </nav>
-  </div>
+          <ul class="social-list reveal-up" style="--delay:.4s" aria-label="Social links">
+            <li>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+                class="social-link magnetic" data-magnetic aria-label="GitHub">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer"
+                class="social-link magnetic" data-magnetic aria-label="LinkedIn">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"
+                class="social-link magnetic" data-magnetic aria-label="Twitter / X">
+                Twitter
+              </a>
+            </li>
+          </ul>
 
-  <script>
-    const body = document.body;
-    const toggle = document.getElementById("menu-toggle");
-    const closeBtn = document.getElementById("menu-close");
-    const contactCta = document.getElementById("contact-cta");
-    const drawer = document.getElementById("section-menu");
+        </div>
+      </section>
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+      <!-- ── Footer ── -->
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <p class="footer-copy">© <span id="year"></span> Om Luhar</p>
+          <p class="footer-right">CS @ UW-Madison</p>
+        </div>
+      </footer>
 
-    function openMenu() {
-      body.classList.add("menu-open");
-      toggle.classList.add("is-open");
-      toggle.setAttribute("aria-expanded", "true");
-      toggle.setAttribute("aria-label", "Close menu");
-      drawer.setAttribute("aria-hidden", "false");
-      body.style.overflow = "hidden";
-    }
+    </main>
+  </div><!-- /.shell -->
 
-    function closeMenu() {
-      body.classList.remove("menu-open");
-      toggle.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Open menu");
-      drawer.setAttribute("aria-hidden", "true");
-      body.style.overflow = "";
-    }
-
-    function toggleMenu() {
-      if (body.classList.contains("menu-open")) closeMenu();
-      else openMenu();
-    }
-
-    toggle.addEventListener("click", toggleMenu);
-    closeBtn.addEventListener("click", closeMenu);
-
-    contactCta.addEventListener("click", () => {
-      closeMenu();
-      requestAnimationFrame(() => {
-        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-    });
-
-    drawer.querySelectorAll("[data-target]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-target");
-        const el = document.getElementById(id);
-        closeMenu();
-        requestAnimationFrame(() => {
-          el?.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-      });
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && body.classList.contains("menu-open")) closeMenu();
-    });
-
-    const revealEls = document.querySelectorAll(".reveal");
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              io.unobserve(entry.target);
-            }
-          });
-        },
-        { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-      );
-      revealEls.forEach((el) => io.observe(el));
-    } else {
-      revealEls.forEach((el) => el.classList.add("is-visible"));
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
