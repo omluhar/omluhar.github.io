@@ -64,13 +64,17 @@ const overlay    = document.getElementById("drawer-overlay");
 
 function openMenu() {
   document.body.classList.add("menu-open");
+  menuToggle?.classList.add("is-open");
   menuToggle?.setAttribute("aria-expanded", "true");
+  menuToggle?.setAttribute("aria-label", "Close menu");
   drawer?.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 function closeMenu() {
   document.body.classList.remove("menu-open");
+  menuToggle?.classList.remove("is-open");
   menuToggle?.setAttribute("aria-expanded", "false");
+  menuToggle?.setAttribute("aria-label", "Open menu");
   drawer?.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
 }
